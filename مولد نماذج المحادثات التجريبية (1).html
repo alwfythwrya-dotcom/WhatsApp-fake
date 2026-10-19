@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Google AdSense Verification Code -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7726344091233935"
+     crossorigin="anonymous"></script>
+    <title>صانع نماذج المحادثات | إبراهيم الحربي</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- FontAwesome Icons CDN -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- html2canvas for image generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    <!-- Google Fonts (SF Pro style with Cairo & Inter) -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Cairo', 'Inter', '-apple-system', 'BlinkMacSystemFont', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body { font-family: 'Cairo', 'Inter', sans-serif; }
+        
+        /* Realistic Device Elements */
+        .dynamic-island {
+            width: 85px;
+            height: 22px;
+            background-color: black;
+            border-radius: 20px;
+            position: absolute;
+            top: 7px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+        }
+        .android-punchhole {
+            width: 12px;
+            height: 12px;
+            background-color: black;
+            border-radius: 50%;
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 50;
+        }
+
+        /* Custom Scrollbar for Phone Chat Area */
+        .chat-scroll::-webkit-scrollbar { width: 4px; }
+        .chat-scroll::-webkit-scrollbar-track { background: transparent; }
+        .chat-scroll::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.3); border-radius: 4px; }
+
+        /* Control panel scrollbar */
+        ::-webkit-scrollbar { width: 6px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: rgba(156, 163, 175, 0.4); border-radius: 3px; }
+
+        /* WhatsApp Background Pattern Simulation */
+        .wa-bg-pattern {
+            background-color: #efeae2;
+            background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+        .wa-bg-dark {
+            background-color: #0b141a;
+            background-image: radial-gradient(#1e293b 1px, transparent 1px);
+            background-size: 16px 16px;
+        }
+    </style>
+</head>
+<body class="bg-slate-100 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen transition-colors duration-200">
+
+    <!-- Header -->
+    <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 sticky top-0 z-40 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="bg-indigo-600 text-white p-2.5 rounded-2xl flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-comments text-xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-lg font-bold text-slate-800 dark:text-white leading-tight">صانع المحادثات التجريبية</h1>
+                    <p class="text-xs text-slate-500 dark:text-slate-400">إنشاء نماذج واجهات احترافية ومطابقة للواقع</p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="max-w-7xl mx-auto px-4 py-6">
+        
+        <!-- Ethical Usage Disclaimer -->
+        <div class="mb-6 p-4 bg-blue-50 dark:bg-blue-950/40 border border-blue-200 dark:border-blue-800/60 rounded-2xl text-xs text-blue-800 dark:text-blue-300 flex items-start gap-3 shadow-sm">
+            <i class="fa-solid fa-shield-halved text-lg text-blue-600 dark:text-blue-400 mt-0.5"></i>
+            <div>
+                <strong class="font-bold block text-sm mb-0.5">إخلاء مسؤولية وتنويه مهم:</strong>
+                هذه الأداة مخصصة حصراً لإنشاء نماذج واجهات العرض (Mockups) للشروحات، الإعلانات، وتصميم الواجهات. يُحظر استخدام التطبيق لإنشاء محادثات مزيفة بهدف التضليل أو الاحتيال أو التشهير بالآخرين.
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+            
+            <!-- Controls Panel (Left Side on Desktop) -->
+            <div class="lg:col-span-6 bg-white dark:bg-slate-800 rounded-3xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm space-y-6">
+                
+                <!-- Platform Selection Tabs -->
+                <div>
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2.5">اختر المنصة</label>
+                    <div class="grid grid-cols-5 gap-1.5 sm:gap-2">
+                        <button onclick="setPlatform('whatsapp')" id="btn-whatsapp" class="platform-btn flex flex-col items-center justify-center p-2.5 rounded-2xl border-2 border-emerald-500 bg-emerald-50 dark:bg-emerald-950/30 text-emerald-600 dark:text-emerald-400 font-bold text-xs transition-all">
+                            <i class="fa-brands fa-whatsapp text-2xl mb-1"></i>
+                            واتساب
+                        </button>
+                        <button onclick="setPlatform('instagram')" id="btn-instagram" class="platform-btn flex flex-col items-center justify-center p-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-semibold text-xs transition-all">
+                            <i class="fa-brands fa-instagram text-2xl mb-1"></i>
+                            انستغرام
+                        </button>
+                        <button onclick="setPlatform('tiktok')" id="btn-tiktok" class="platform-btn flex flex-col items-center justify-center p-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-semibold text-xs transition-all">
+                            <i class="fa-brands fa-tiktok text-2xl mb-1"></i>
+                            تيك توك
+                        </button>
+                        <button onclick="setPlatform('telegram')" id="btn-telegram" class="platform-btn flex flex-col items-center justify-center p-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-semibold text-xs transition-all">
+                            <i class="fa-brands fa-telegram text-2xl mb-1"></i>
+                            تليجرام
+                        </button>
+                        <button onclick="setPlatform('twitter')" id="btn-twitter" class="platform-btn flex flex-col items-center justify-center p-2.5 rounded-2xl border-2 border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 text-slate-600 dark:text-slate-400 font-semibold text-xs transition-all">
+                            <i class="fa-brands fa-x-twitter text-2xl mb-1"></i>
+                            تويتر / X
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Device & System Bar Settings -->
+                <div class="border-t border-slate-100 dark:border-slate-700/60 pt-4">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">إعدادات شريط النظام والجهاز</label>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-xs mb-1 text-slate-600 dark:text-slate-400">نوع الجهاز</label>
+                            <select id="deviceType" onchange="updateSystemBar()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                                <option value="iphone">iPhone (iOS)</option>
+                                <option value="android">Android</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-xs mb-1 text-slate-600 dark:text-slate-400">الساعة</label>
+                            <input type="text" id="timeInput" value="09:41" oninput="updateSystemBar()" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-xs focus:ring-2 focus:ring-indigo-500 outline-none dir-ltr text-center font-mono">
+                        </div>
+                        <div>
+                            <label class="block text-xs mb-1 text-slate-600 dark:text-slate-400">البطارية (<span id="batteryVal">85</span>%)</label>
+                            <input type="range" id="batteryInput" min="1" max="100" value="85" oninput="updateSystemBar()" class="w-full accent-indigo-600 my-2">
+                        </div>
+                    </div>
+
+                    <div class="flex items-center gap-4 mt-3">
+                        <label class="inline-flex items-center cursor-pointer">
+                            <input type="checkbox" id="darkModeToggle" onchange="toggleThemeMode()" class="sr-only peer">
+                            <div class="relative w-9 h-5 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-indigo-600"></div>
+                            <span class="mr-2 text-xs text-slate-600 dark:text-slate-300">الوضع الداكن (Dark Mode)</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Profile Customization -->
+                <div class="border-t border-slate-100 dark:border-slate-700/60 pt-4">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">الملف الشخصي للمستلم</label>
+                    <div class="space-y-3">
+                        <div class="flex items-center gap-3">
+                            <div class="relative group cursor-pointer w-12 h-12 flex-shrink-0">
+                                <img id="profilePreview" src="https://placehold.co/150x150/6366f1/ffffff?text=User" class="w-12 h-12 rounded-full object-cover border border-slate-200">
+                                <label for="avatarUpload" class="absolute inset-0 bg-black/40 rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                                    <i class="fa-solid fa-camera text-xs"></i>
+                                </label>
+                                <input type="file" id="avatarUpload" accept="image/*" class="hidden" onchange="handleAvatarUpload(event)">
+                            </div>
+                            <div class="flex-1 space-y-2">
+                                <input type="text" id="profileName" value="أحمد علي" oninput="updateProfile()" placeholder="اسم الشخص" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                                <input type="text" id="profileStatus" value="متصل الآن" oninput="updateProfile()" placeholder="الحالة (مثال: متصل الآن، @ahmed_ali)" class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <label class="inline-flex items-center cursor-pointer">
+                                <input type="checkbox" id="verifiedToggle" onchange="updateProfile()" class="sr-only peer">
+                                <div class="relative w-8 h-4 bg-slate-300 peer-focus:outline-none rounded-full peer dark:bg-slate-700 peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:right-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-3 after:w-3 after:transition-all peer-checked:bg-blue-500"></div>
+                                <span class="mr-2 text-xs text-slate-600 dark:text-slate-300">شارة التوثيق الزرقاء</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Message Creator Section -->
+                <div class="border-t border-slate-100 dark:border-slate-700/60 pt-4">
+                    <label class="block text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">إضافة رسالة جديدة</label>
+                    <div class="space-y-3">
+                        <textarea id="msgText" rows="2" placeholder="اكتب نص الرسالة هنا..." class="w-full bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2.5 text-xs focus:ring-2 focus:ring-indigo-500 outline-none resize-none"></textarea>
+                        
+                        <div class="flex items-center justify-between gap-2">
+                            <div class="flex gap-2">
+                                <select id="msgSender" class="bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-xs focus:ring-2 focus:ring-indigo-500 outline-none">
+                                    <option value="me">مرسلة (مني)</option>
+                                    <option value="other">مستلمة (من الطرف الآخر)</option>
+                                </select>
+                                <input type="text" id="msgTime" value="09:42" class="w-20 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl p-2 text-xs text-center font-mono outline-none dir-ltr">
+                            </div>
+
+                            <div class="flex gap-1">
+                                <label for="msgImageUpload" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 text-slate-700 dark:text-slate-200 p-2 rounded-xl text-xs cursor-pointer flex items-center justify-center transition-colors" title="إرفاق صورة">
+                                    <i class="fa-solid fa-image text-sm"></i>
+                                </label>
+                                <input type="file" id="msgImageUpload" accept="image/*" class="hidden" onchange="handleMsgImageUpload(event)">
+                                <button onclick="addTextMessage()" class="bg-indigo-600 hover:bg-indigo-700 text-white px-4 py-2 rounded-xl text-xs font-semibold flex items-center gap-1 transition-colors shadow-sm">
+                                    <i class="fa-solid fa-plus"></i> إضافة
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export & Clear Buttons -->
+                <div class="border-t border-slate-100 dark:border-slate-700/60 pt-4 flex flex-col sm:flex-row gap-3">
+                    <button onclick="downloadMockup()" class="flex-1 bg-emerald-600 hover:bg-emerald-700 text-white py-3 rounded-2xl text-xs font-bold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all">
+                        <i class="fa-solid fa-download text-sm"></i>
+                        تحميل نموذج المحادثة كصورة (PNG)
+                    </button>
+                    <button onclick="clearMessages()" class="bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 border border-rose-200 dark:border-rose-900/50 hover:bg-rose-100 py-3 px-4 rounded-2xl text-xs font-semibold flex items-center justify-center gap-1 transition-colors">
+                        <i class="fa-solid fa-trash-can"></i> مسح الرسائل
+                    </button>
+                </div>
+
+            </div>
+
+            <!-- Phone Preview Area (Right Side on Desktop) -->
+            <div class="lg:col-span-6 flex flex-col items-center justify-center">
+                
+                <div class="text-xs text-slate-500 dark:text-slate-400 mb-2 font-medium flex items-center gap-1">
+                    <i class="fa-solid fa-mobile-screen"></i> معاينة مباشرة للمحادثة
+                </div>
+
+                <!-- Phone Container Wrapper -->
+                <div id="phoneFrame" class="w-full max-w-[375px] h-[680px] bg-white text-black rounded-[45px] shadow-2xl border-[10px] border-slate-900 dark:border-slate-800 relative overflow-hidden flex flex-col transition-all duration-300">
+                    
+                    <!-- System Status Bar (Top) -->
+                    <div id="systemBar" class="pt-2.5 px-6 pb-1 flex justify-between items-center text-xs font-semibold z-30 select-none">
+                        <div id="notchArea"></div>
+                        <span id="timeDisplay" class="font-mono text-[11px] font-bold">09:41</span>
+                        <div class="flex items-center gap-1.5 text-[11px]">
+                            <i class="fa-solid fa-signal text-[10px]"></i>
+                            <i class="fa-solid fa-wifi text-[10px]"></i>
+                            <div class="flex items-center gap-0.5">
+                                <span id="batteryText" class="text-[9px] font-mono">85%</span>
+                                <i id="batteryIcon" class="fa-solid fa-battery-three-quarters text-sm"></i>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Platform Dynamic Header -->
+                    <div id="platformHeader" class="px-3 py-2 border-b flex items-center justify-between z-20 transition-colors">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-chevron-right text-base cursor-pointer opacity-80"></i>
+                            <div class="relative">
+                                <img id="appHeaderAvatar" src="https://placehold.co/150x150/6366f1/ffffff?text=User" class="w-9 h-9 rounded-full object-cover">
+                                <div id="onlineBadge" class="w-2.5 h-2.5 bg-emerald-500 rounded-full absolute bottom-0 right-0 border-2 border-white"></div>
+                            </div>
+                            <div class="flex flex-col">
+                                <div class="flex items-center gap-1 leading-tight">
+                                    <span id="appHeaderName" class="font-bold text-xs">أحمد علي</span>
+                                    <i id="appHeaderVerified" class="fa-solid fa-circle-check text-blue-500 text-[10px] hidden"></i>
+                                </div>
+                                <span id="appHeaderStatus" class="text-[10px] opacity-60 leading-tight">متصل الآن</span>
+                            </div>
+                        </div>
+
+                        <!-- Dynamic Header Action Icons -->
+                        <div id="headerIcons" class="flex items-center gap-3 text-sm opacity-80">
+                            <!-- Injected dynamically via JS -->
+                        </div>
+                    </div>
+
+                    <!-- Messages Chat Container -->
+                    <div id="chatBody" class="flex-1 overflow-y-auto p-3 space-y-2.5 relative chat-scroll">
+                        <!-- Messages dynamically added here -->
+                    </div>
+
+                    <!-- Platform Dynamic Footer Input Area -->
+                    <div id="platformFooter" class="p-2 border-t flex items-center gap-2 z-20">
+                        <!-- Injected dynamically via JS -->
+                    </div>
+
+                    <!-- iOS Home Bar Indicator -->
+                    <div id="homeIndicator" class="w-32 h-1 bg-slate-400/40 rounded-full mx-auto my-1"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Footer & Contact Section -->
+        <footer class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-500 dark:text-slate-400 space-y-3">
+            <p class="font-semibold text-slate-700 dark:text-slate-300">
+                حقوق إبراهيم الحربي &copy; <span id="yearSpan"></span> - جميع الحقوق محفوظة
+            </p>
+            
+            <!-- WhatsApp Support Contact Button -->
+            <div class="pt-2">
+                <a href="https://wa.me/966537498565?text=%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%20%D8%B9%D9%84%D9%8A%D9%83%D9%85%20%D9%88%D8%B1%D8%AD%D9%85%D9%87%20%D8%A7%D9%84%D9%84%D9%87%20%D9%88%D8%A8%D8%B1%D9%83%D8%A7%D8%AA%D9%87%20%D8%A7%D9%86%D8%A7%D8%AC%D9%8A%D8%AA%D9%83%20%D9%85%D9%86%20%D8%B5%D8%A7%D9%86%D8%B9%20%D9%86%D9%85%D8%A7%D8%B0%D8%AC%20%D8%A7%D9%84%D9%85%D8%AD%D8%A7%D8%AF%D8%AB%D8%A7%D8%AA%20%D9%81%D9%8A%20%D9%85%D8%B4%D9%83%D9%84%D9%87" target="_blank" class="inline-flex items-center gap-2 bg-emerald-500 hover:bg-emerald-600 text-white px-5 py-2.5 rounded-2xl font-bold shadow-md hover:shadow-lg transition-all text-xs">
+                    <i class="fa-brands fa-whatsapp text-lg"></i>
+                    <span>تواصل معنا عبر واتساب للمساعدة أو الإبلاغ عن مشكلة</span>
+                </a>
+            </div>
+        </footer>
+
+    </main>
+
+    <script>
+        // Global App State
+        let currentPlatform = 'whatsapp';
+        let isDarkMode = false;
+        let messages = [
+            { id: 1, type: 'text', text: 'أهلاً بك! كيف يمكنني مساعدتك اليوم؟', sender: 'other', time: '09:40' },
+            { id: 2, type: 'text', text: 'أهلاً! أود الاستفسار عن خدمة إعداد النماذج التجريبية.', sender: 'me', time: '09:41' }
+        ];
+
+        // Set Copyright Year dynamically
+        document.getElementById('yearSpan').textContent = new Date().getFullYear();
+
+        function setPlatform(platform) {
+            currentPlatform = platform;
+            
+            // Update Platform Selector Buttons UI
+            document.querySelectorAll('.platform-btn').forEach(btn => {
+                btn.classList.remove('border-emerald-500', 'bg-emerald-50', 'dark:bg-emerald-950/30', 'text-emerald-600', 'dark:text-emerald-400');
+                btn.classList.add('border-slate-200', 'dark:border-slate-700', 'bg-slate-50', 'dark:bg-slate-800/50', 'text-slate-600', 'dark:text-slate-400');
+            });
+
+            const activeBtn = document.getElementById(`btn-${platform}`);
+            if (activeBtn) {
+                activeBtn.classList.remove('border-slate-200', 'dark:border-slate-700', 'bg-slate-50', 'dark:bg-slate-800/50', 'text-slate-600', 'dark:text-slate-400');
+                activeBtn.classList.add('border-emerald-500', 'bg-emerald-50', 'dark:bg-emerald-950/30', 'text-emerald-600', 'dark:text-emerald-400');
+            }
+
+            renderMockup();
+        }
+
+        function updateSystemBar() {
+            const timeVal = document.getElementById('timeInput').value || '09:41';
+            const battVal = document.getElementById('batteryInput').value;
+            const device = document.getElementById('deviceType').value;
+
+            document.getElementById('timeDisplay').textContent = timeVal;
+            document.getElementById('batteryVal').textContent = battVal;
+            document.getElementById('batteryText').textContent = battVal + '%';
+
+            // Dynamic Battery Icon Status
+            const battIcon = document.getElementById('batteryIcon');
+            if (battVal > 80) battIcon.className = 'fa-solid fa-battery-full text-sm';
+            else if (battVal > 50) battIcon.className = 'fa-solid fa-battery-three-quarters text-sm';
+            else if (battVal > 20) battIcon.className = 'fa-solid fa-battery-half text-sm';
+            else battIcon.className = 'fa-solid fa-battery-quarter text-rose-500 text-sm';
+
+            // Device Notch Style Switch
+            const notchArea = document.getElementById('notchArea');
+            if (device === 'iphone') {
+                notchArea.className = 'dynamic-island';
+            } else {
+                notchArea.className = 'android-punchhole';
+            }
+        }
+
+        function toggleThemeMode() {
+            isDarkMode = document.getElementById('darkModeToggle').checked;
+            renderMockup();
+        }
+
+        function updateProfile() {
+            const name = document.getElementById('profileName').value || 'شخص ما';
+            const status = document.getElementById('profileStatus').value || '';
+            const isVerified = document.getElementById('verifiedToggle').checked;
+
+            document.getElementById('appHeaderName').textContent = name;
+            document.getElementById('appHeaderStatus').textContent = status;
+            document.getElementById('appHeaderStatus').style.display = status ? 'block' : 'none';
+
+            const verifiedIcon = document.getElementById('appHeaderVerified');
+            if (isVerified) {
+                verifiedIcon.classList.remove('hidden');
+            } else {
+                verifiedIcon.classList.add('hidden');
+            }
+        }
+
+        function handleAvatarUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    document.getElementById('profilePreview').src = e.target.result;
+                    document.getElementById('appHeaderAvatar').src = e.target.result;
+                }
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function addTextMessage() {
+            const text = document.getElementById('msgText').value.trim();
+            const sender = document.getElementById('msgSender').value;
+            const time = document.getElementById('msgTime').value || '09:42';
+
+            if (!text) return;
+
+            messages.push({
+                id: Date.now(),
+                type: 'text',
+                text: text,
+                sender: sender,
+                time: time
+            });
+
+            document.getElementById('msgText').value = '';
+            renderMessages();
+        }
+
+        function handleMsgImageUpload(event) {
+            const file = event.target.files[0];
+            const sender = document.getElementById('msgSender').value;
+            const time = document.getElementById('msgTime').value || '09:42';
+
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    messages.push({
+                        id: Date.now(),
+                        type: 'image',
+                        imageUrl: e.target.result,
+                        sender: sender,
+                        time: time
+                    });
+                    renderMessages();
+                }
+                reader.readAsDataURL(file);
+            }
+            event.target.value = '';
+        }
+
+        function deleteMessage(id) {
+            messages = messages.filter(m => m.id !== id);
+            renderMessages();
+        }
+
+        function clearMessages() {
+            messages = [];
+            renderMessages();
+        }
+
+        function renderMockup() {
+            const frame = document.getElementById('phoneFrame');
+            const header = document.getElementById('platformHeader');
+            const headerIcons = document.getElementById('headerIcons');
+            const footer = document.getElementById('platformFooter');
+            const systemBar = document.getElementById('systemBar');
+            const onlineBadge = document.getElementById('onlineBadge');
+
+            // Reset background classes
+            frame.className = "w-full max-w-[375px] h-[680px] rounded-[45px] shadow-2xl border-[10px] border-slate-900 dark:border-slate-800 relative overflow-hidden flex flex-col transition-all duration-300 ";
+
+            if (isDarkMode) {
+                frame.style.backgroundColor = currentPlatform === 'whatsapp' ? '#0b141a' : (currentPlatform === 'twitter' ? '#15202b' : '#000000');
+                frame.style.color = '#ffffff';
+                systemBar.style.color = '#ffffff';
+            } else {
+                frame.style.backgroundColor = currentPlatform === 'whatsapp' ? '#efeae2' : '#ffffff';
+                frame.style.color = '#000000';
+                systemBar.style.color = '#000000';
+            }
+
+            onlineBadge.style.display = 'block';
+
+            // Platform Specific Header & Footer Layouts
+            if (currentPlatform === 'whatsapp') {
+                header.className = isDarkMode ? 'px-3 py-2 border-b border-slate-800 bg-[#1f2c34] text-white flex items-center justify-between z-20' : 'px-3 py-2 border-b border-emerald-800 bg-[#075e54] text-white flex items-center justify-between z-20';
+                headerIcons.innerHTML = '<i class="fa-solid fa-video cursor-pointer"></i><i class="fa-solid fa-phone cursor-pointer"></i><i class="fa-solid fa-ellipsis-vertical cursor-pointer"></i>';
+                
+                footer.className = isDarkMode ? 'p-2 bg-[#1f2c34] flex items-center gap-2 z-20' : 'p-2 bg-[#f0f2f5] flex items-center gap-2 z-20';
+                footer.innerHTML = `
+                    <div class="flex-1 bg-white dark:bg-[#2a3942] rounded-full px-3 py-1.5 text-xs text-slate-400 flex items-center justify-between shadow-sm">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-regular fa-face-smile text-slate-500 text-base"></i>
+                            <span class="text-slate-400">مراسلة</span>
+                        </div>
+                        <i class="fa-solid fa-paperclip text-slate-500 text-sm"></i>
+                    </div>
+                    <div class="w-8 h-8 rounded-full bg-[#128c7e] flex items-center justify-center text-white text-xs shadow"><i class="fa-solid fa-microphone"></i></div>
+                `;
+            } 
+            else if (currentPlatform === 'instagram') {
+                header.className = isDarkMode ? 'px-3 py-2 border-b border-slate-800 bg-black text-white flex items-center justify-between z-20' : 'px-3 py-2 border-b border-slate-100 bg-white text-black flex items-center justify-between z-20';
+                headerIcons.innerHTML = '<i class="fa-solid fa-phone text-base"></i><i class="fa-solid fa-video text-base"></i><i class="fa-solid fa-circle-info text-base"></i>';
+                
+                footer.className = isDarkMode ? 'p-2 bg-black flex items-center gap-2 z-20' : 'p-2 bg-white flex items-center gap-2 z-20';
+                footer.innerHTML = `
+                    <div class="flex-1 bg-slate-100 dark:bg-[#262626] rounded-full px-3 py-2 text-xs text-slate-400 flex items-center justify-between">
+                        <div class="flex items-center gap-2">
+                            <div class="w-6 h-6 rounded-full bg-blue-500 flex items-center justify-center text-white text-[10px]"><i class="fa-solid fa-camera"></i></div>
+                            <span>إرسال رسالة...</span>
+                        </div>
+                        <div class="flex items-center gap-2.5 text-slate-500 dark:text-slate-300">
+                            <i class="fa-solid fa-microphone"></i>
+                            <i class="fa-regular fa-image"></i>
+                            <i class="fa-regular fa-heart"></i>
+                        </div>
+                    </div>
+                `;
+            } 
+            else if (currentPlatform === 'tiktok') {
+                header.className = isDarkMode ? 'px-3 py-2 border-b border-slate-800 bg-black text-white flex items-center justify-between z-20' : 'px-3 py-2 border-b border-slate-100 bg-white text-black flex items-center justify-between z-20';
+                headerIcons.innerHTML = '<i class="fa-solid fa-ellipsis text-lg cursor-pointer"></i>';
+                onlineBadge.style.display = 'none';
+
+                footer.className = isDarkMode ? 'p-2 bg-black border-t border-slate-800 flex items-center gap-2 z-20' : 'p-2 bg-white border-t border-slate-100 flex items-center gap-2 z-20';
+                footer.innerHTML = `
+                    <div class="flex-1 bg-slate-100 dark:bg-[#161823] rounded-full px-3 py-2 text-xs text-slate-400 flex items-center justify-between">
+                        <span>إرسال رسالة...</span>
+                        <div class="flex items-center gap-2 text-slate-500 dark:text-slate-400">
+                            <i class="fa-regular fa-face-smile text-base"></i>
+                        </div>
+                    </div>
+                    <div class="text-rose-500 text-lg px-1"><i class="fa-solid fa-paper-plane"></i></div>
+                `;
+            }
+            else if (currentPlatform === 'telegram') {
+                header.className = isDarkMode ? 'px-3 py-2 border-b border-slate-800 bg-[#212d3b] text-white flex items-center justify-between z-20' : 'px-3 py-2 border-b border-sky-700 bg-[#517da2] text-white flex items-center justify-between z-20';
+                headerIcons.innerHTML = '<i class="fa-solid fa-phone"></i><i class="fa-solid fa-ellipsis-vertical"></i>';
+                
+                footer.className = isDarkMode ? 'p-2 bg-[#1d2733] flex items-center gap-2 z-20' : 'p-2 bg-white flex items-center gap-2 z-20';
+                footer.innerHTML = `
+                    <i class="fa-solid fa-paperclip text-slate-400 text-lg"></i>
+                    <div class="flex-1 bg-transparent px-2 py-1 text-xs text-slate-400">رسالة...</div>
+                    <i class="fa-regular fa-face-smile text-slate-400 text-lg"></i>
+                    <i class="fa-solid fa-microphone text-sky-500 text-lg"></i>
+                `;
+            } 
+            else if (currentPlatform === 'twitter') {
+                header.className = isDarkMode ? 'px-3 py-2 border-b border-slate-800 bg-[#15202b] text-white flex items-center justify-between z-20' : 'px-3 py-2 border-b border-slate-100 bg-white text-black flex items-center justify-between z-20';
+                headerIcons.innerHTML = '<i class="fa-solid fa-gear text-base"></i>';
+                onlineBadge.style.display = 'none';
+
+                footer.className = isDarkMode ? 'p-2 bg-[#15202b] border-t border-slate-800 flex items-center gap-2 z-20' : 'p-2 bg-white border-t border-slate-100 flex items-center gap-2 z-20';
+                footer.innerHTML = `
+                    <div class="flex-1 bg-slate-100 dark:bg-slate-800 rounded-full px-3 py-1.5 text-xs text-slate-400 flex items-center justify-between">
+                        <span>ابدأ رسالة...</span>
+                        <div class="flex items-center gap-2 text-sky-500">
+                            <i class="fa-regular fa-image"></i>
+                            <i class="fa-solid fa-gif"></i>
+                        </div>
+                    </div>
+                    <i class="fa-regular fa-paper-plane text-sky-500 text-base px-1"></i>
+                `;
+            }
+
+            renderMessages();
+        }
+
+        function renderMessages() {
+            const chatBody = document.getElementById('chatBody');
+            chatBody.innerHTML = '';
+
+            messages.forEach(msg => {
+                const isMe = msg.sender === 'me';
+                const msgWrapper = document.createElement('div');
+                msgWrapper.className = `flex flex-col ${isMe ? 'items-start' : 'items-end'} group relative my-0.5`;
+
+                let bubbleStyle = '';
+                
+                // Authentic Color & Style Mapping
+                if (currentPlatform === 'whatsapp') {
+                    bubbleStyle = isMe 
+                        ? (isDarkMode ? 'bg-[#005c4b] text-white rounded-2xl rounded-tr-none' : 'bg-[#e7ffdb] text-slate-900 rounded-2xl rounded-tr-none shadow-sm')
+                        : (isDarkMode ? 'bg-[#202c33] text-white rounded-2xl rounded-tl-none' : 'bg-white text-slate-900 rounded-2xl rounded-tl-none shadow-sm');
+                } else if (currentPlatform === 'instagram') {
+                    bubbleStyle = isMe 
+                        ? 'bg-[#3797f0] text-white rounded-2xl rounded-tr-xs' 
+                        : (isDarkMode ? 'bg-[#262626] text-white rounded-2xl rounded-tl-xs' : 'bg-[#efefef] text-black rounded-2xl rounded-tl-xs');
+                } else if (currentPlatform === 'tiktok') {
+                    bubbleStyle = isMe 
+                        ? 'bg-[#fe2c55] text-white rounded-2xl rounded-tr-xs' 
+                        : (isDarkMode ? 'bg-[#2f2f2f] text-white rounded-2xl rounded-tl-xs' : 'bg-[#f1f1f2] text-black rounded-2xl rounded-tl-xs');
+                } else if (currentPlatform === 'telegram') {
+                    bubbleStyle = isMe 
+                        ? (isDarkMode ? 'bg-[#2b5278] text-white rounded-2xl rounded-tr-none' : 'bg-[#eeffde] text-slate-900 rounded-2xl rounded-tr-none shadow-sm')
+                        : (isDarkMode ? 'bg-[#182533] text-white rounded-2xl rounded-tl-none' : 'bg-white text-slate-900 rounded-2xl rounded-tl-none shadow-sm');
+                } else if (currentPlatform === 'twitter') {
+                    bubbleStyle = isMe 
+                        ? 'bg-[#1da1f2] text-white rounded-2xl rounded-tr-xs' 
+                        : (isDarkMode ? 'bg-[#2c3640] text-white rounded-2xl rounded-tl-xs' : 'bg-[#eff3f4] text-black rounded-2xl rounded-tl-xs');
+                }
+
+                let contentHtml = '';
+                if (msg.type === 'text') {
+                    contentHtml = `<p class="text-xs leading-relaxed break-words font-sans">${escapeHtml(msg.text)}</p>`;
+                } else if (msg.type === 'image') {
+                    contentHtml = `<img src="${msg.imageUrl}" class="max-w-[180px] rounded-lg object-cover mb-1">`;
+                }
+
+                msgWrapper.innerHTML = `
+                    <div class="relative max-w-[82%] px-3 py-2 ${bubbleStyle}">
+                        ${contentHtml}
+                        <div class="flex items-center justify-end gap-1 mt-0.5 text-[9px] opacity-70 dir-ltr">
+                            <span>${msg.time}</span>
+                            ${isMe && (currentPlatform === 'whatsapp' || currentPlatform === 'telegram') ? '<i class="fa-solid fa-check-double text-sky-400"></i>' : ''}
+                        </div>
+                        <button onclick="deleteMessage(${msg.id})" class="absolute -top-2 -right-2 bg-rose-500 text-white rounded-full w-4 h-4 text-[9px] flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity shadow-md" title="حذف الرسالة">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                `;
+
+                chatBody.appendChild(msgWrapper);
+            });
+
+            // Auto Scroll to bottom of chat
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        // Helper function for HTML Escaping
+        function escapeHtml(text) {
+            return text.replace(/&/g, "&amp;")
+                       .replace(/</g, "&lt;")
+                       .replace(/>/g, "&gt;")
+                       .replace(/"/g, "&quot;")
+                       .replace(/'/g, "&#039;");
+        }
+
+        function downloadMockup() {
+            const phoneFrame = document.getElementById('phoneFrame');
+            
+            html2canvas(phoneFrame, {
+                scale: 2,
+                useCORS: true,
+                backgroundColor: null,
+                logging: false
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = `chat-mockup-${currentPlatform}-${Date.now()}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(err => {
+                console.error("Error generating mockup screenshot:", err);
+                alert("حدث خطأ أثناء تصدير الصورة، يرجى المحاولة مرة أخرى.");
+            });
+        }
+
+        window.onload = function() {
+            updateSystemBar();
+            updateProfile();
+            renderMockup();
+        };
+    </script>
+</body>
+</html>
